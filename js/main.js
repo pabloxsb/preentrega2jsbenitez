@@ -5,7 +5,7 @@ class CrearCliente {
             this.horario = Number(horario);
             this.servicio = Number(servicio);
         }
-        //metodo
+        //Metodos
     turnosDado() {
             if (this.horario >= 8 && this.horario <= 20) {
                 switch (this.servicio) {
@@ -34,7 +34,7 @@ class CrearCliente {
                 }
             }
         }
-        //metodo
+        //Metodos
     datosIngresados() {
         return (
             "Su nombre es: " +
@@ -50,7 +50,7 @@ class CrearCliente {
     }
 }
 
-// funcion que validacion
+// Funcion De Validacion
 function validarQueSeaTexto(mensaje) {
     let respuesta = prompt(mensaje);
     while (
@@ -58,13 +58,13 @@ function validarQueSeaTexto(mensaje) {
         respuesta.trim() == "" ||
         !isNaN(Number(respuesta))
     ) {
-        respuesta = prompt("No puede avanzar sino ingresa un nombre.\n" + mensaje);
+        respuesta = prompt("No puede avanzar sino ingresa un nombre.\n " + mensaje);
     }
     return respuesta;
 }
 //
 function validarQueSeaNumero(mensaje, tipo) {
-    //funcion que valida que no ingrese vacio o vacios o nada y que sea numero
+    //Funcion Para validar Que Sea solo Numero.
     let respuesta = prompt(mensaje);
     while (
         respuesta == null ||
@@ -86,7 +86,7 @@ function validarQueSeaNumero(mensaje, tipo) {
         while (respuesta < 1 || respuesta > 3) {
             alert("La opcion del servicio ingresado es incorecto");
             respuesta = prompt(
-                "Por favor Ingrese una opcion correcta \n\n 1 - semi \n 2 - kapping \n 3 - esculpida"
+                "Por favor Ingrese una opcion correcta \n\n 1 - Lavado exterior \n 2 - Lavado exterior e interior \n 3 - Lavado completo con chasis"
             );
         }
         return Number(respuesta);
@@ -152,21 +152,20 @@ function ingresarCliente() {
 
     //valida primero que sea numero y despues que sea la franja horaria
     let servicio = validarQueSeaNumero(
-        "Ingrese un servicio: \n 1 - lavadoExterior \n 2 - lavadoExteriorInterior \n 3 - lavadoCompletoConChasis)",
+        "Ingrese un servicio: \n 1 - Lavado Exterior \n 2 - Lavado Exterior y Interior \n 3 - Lavado Completo Con Chasis",
         "servicio"
     );
 
     // luego de validar creo el cliente
     let cliente = new CrearCliente(nombre, fecha, horario, servicio);
-    //console.log(cliente)//para hacer pruebas
 
     //muestro por pantalla para asegurarame que esta cargando datos
     alert(cliente.turnosDado());
-    //ingresan los datos del cliente al array
+    //ingresan los datos al array
     clientesIngresados.push(cliente);
 }
 
-/*---------------------   codigo que dispara todo   -------------------------------------*/
+/* codigo de inicio*/
 
 //inicio vacio
 let menu;
@@ -174,7 +173,7 @@ let lista = "";
 
 const clientesIngresados = [];
 
-//menu para que el usuario elija una opcion
+//menu
 do {
     menu = Number(
         prompt(
